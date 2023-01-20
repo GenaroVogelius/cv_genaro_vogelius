@@ -9,7 +9,7 @@
     background: linear-gradient(to right,
         rgba(v.$primary-color, 0.9),
         rgba(v.$primary-color, 0.3)),
-      url(../img/model-1.jpg) center top;
+      url(../img/foto-gena.jpg) center top;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -18,6 +18,8 @@
 
     p {
       margin-bottom: 2rem;
+      font-family: "Montserrat", sans-serif;
+
     }
   }
 
@@ -37,21 +39,34 @@
     grid-template-columns: 1fr;
     grid-gap: 2rem;
 
+    p {
+      font-family: "Montserrat", sans-serif;
+    }
+
     &__feature {
       background: lighten(v.$primary-color, 10%);
       padding: 0.5rem;
-      border-bottom: 5px solid v.$secondary-color;
+      border: thick double v.$clr-white;
 
-      .ol {
+      h2 {
+        margin-bottom: 0.5rem;
+      }
+
+      .items {
         list-style: none;
+
+
+        .element {
+          padding: 0.5rem 0rem;
+          text-transform: uppercase;
+          border-bottom: 2px solid #6fc909;
+        }
+
       }
     }
   }
 
-  .social-icons {
-    display: flex;
-    flex-direction: column;
-  }
+
 
   footer {
     transform: rotate(90deg) translate(-3rem, -5rem);

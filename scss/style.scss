@@ -1,9 +1,11 @@
+// sass --watch scss/style.scss css/style.css
+
 @forward "_reset";
 @forward "_variables";
 @forward "_mixins";
 @forward "_home";
 @forward "_navbar";
-@forward "_about";
+@forward "_index";
 @forward "_projects";
 @forward "_contact";
 @forward "_responsive";
@@ -16,7 +18,7 @@ body {
   color: v.$clr-white;
   height: 100vh;
   font-family: sans-serif;
-  line-height: 1;
+
 
 
   header {
@@ -47,14 +49,23 @@ main {
 
   .text-secondary {
     color: v.$secondary-color;
-
   }
 
 
   .social-icons {
+    display: flex;
+    flex-direction: column;
     position: fixed;
     bottom: 1rem;
-    left: 1rem;
+    padding: 0 0.7rem;
+    // darle mas padding desde 360px
+    align-items: center;
+    gap: 0.5rem;
+
+    i {
+      font-size: 1em;
+      // font-size: 2em desde 360px;
+    }
 
     a {
       padding: 0.4rem;
