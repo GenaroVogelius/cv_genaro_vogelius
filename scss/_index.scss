@@ -32,16 +32,19 @@
     }
   }
 
+  p {
+    font-family: "Montserrat", sans-serif;
+    padding: 1rem;
+    text-align: center;
+
+  }
+
   .features {
     width: 60vw;
     margin: 2rem auto 0 auto;
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 2rem;
-
-    p {
-      font-family: "Montserrat", sans-serif;
-    }
 
     &__feature {
       background: lighten(v.$primary-color, 10%);

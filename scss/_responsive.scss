@@ -1,4 +1,12 @@
 @use "_mixins" as m;
+@use "_variables" as v;
+
+@include m.small-sm {
+  .nav .menu-nav__link {
+    font-size: 2rem
+  }
+}
+
 
 @include m.media-md {
   .menu-btn {
@@ -12,7 +20,7 @@
       display: block;
       transform: translateY(0);
       height: 100%;
-      background: transparent;
+      background: v.$primary-color;
       text-align: right;
 
       &__item {
