@@ -5,6 +5,17 @@
   .nav .menu-nav__link {
     font-size: 2rem
   }
+
+
+  main .social-icons {
+    padding: 0 1rem;
+    gap: 1rem;
+
+    i {
+      font-size: 1.5em;
+
+    }
+  }
 }
 
 
@@ -54,6 +65,10 @@
 
   .contact__list {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  main .social-icons i {
+    font-size: 2em;
   }
 }
 

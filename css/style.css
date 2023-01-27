@@ -4,23 +4,55 @@
   box-sizing: border-box;
 }
 
-.home {
+body {
+  background-color: #252424;
+  color: #fff;
+  height: 100vh;
+  font-family: sans-serif;
+}
+body header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  padding: 1rem;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+main {
   height: 100%;
-  padding-top: 40vh;
-  overflow: hidden;
-  text-align: center;
-  background: linear-gradient(to right, rgba(37, 36, 36, 0.9), rgba(37, 36, 36, 0.3)), url(../img/model-1.jpg) center top;
-  background-size: cover;
+  width: 100%;
 }
-.home__name {
-  font-size: 5rem;
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #fff;
-}
-.home__name--last {
+main .text-secondary {
   color: #6fc909;
-  font-weight: 700;
+}
+main .social-icons {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 1rem;
+  padding: 0 0.7rem;
+  align-items: center;
+  gap: 0.5rem;
+}
+main .social-icons i {
+  font-size: 1em;
+}
+main .social-icons a {
+  padding: 0.4rem;
+  transition: all 0.5s ease-in-out;
+}
+main .social-icons a:hover {
+  color: #6fc909;
 }
 
 .menu-btn {
@@ -199,7 +231,7 @@
 .projects__bio-image {
   height: 30vh;
   width: 100%;
-  background: linear-gradient(to right, rgba(37, 36, 36, 0.9), rgba(37, 36, 36, 0.3)), url(../img/model-1.jpg) center top;
+  background: linear-gradient(to right, rgba(37, 36, 36, 0.9), rgba(37, 36, 36, 0.3)), url(../img/foto-gena.jpg) center top;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -223,14 +255,22 @@
   overflow: hidden;
   cursor: pointer;
 }
+.projects__item h3 {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(37, 36, 36, 0.9), rgba(255, 255, 255, 0.3));
+  color: #fff;
+  padding: 0.3rem;
+}
 .projects__item img {
   width: 100%;
+  height: 100%;
 }
 .projects__item::after {
   content: "";
   position: absolute;
   top: 100%;
-  left: 0;
   height: 100%;
   width: 100%;
   background: #6fc909;
@@ -267,34 +307,17 @@
   display: flex;
   flex-direction: column;
 }
-.projects footer {
-  transform: rotate(90deg) translate(-3rem, -5rem);
-}
-
-.contact {
-  height: 100%;
-  padding-top: 40vh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: linear-gradient(to right, rgba(37, 36, 36, 0.9), rgba(37, 36, 36, 0.3)), url(../img/model-1.jpg) center top;
-  background-size: cover;
-}
-.contact h2 {
-  font-size: 3rem;
-  margin-bottom: 2rem;
-}
-.contact__list {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 2rem;
-  font-size: 1.5rem;
-}
 
 @media (min-width: 390px) {
   .nav .menu-nav__link {
     font-size: 2rem;
+  }
+  main .social-icons {
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+  main .social-icons i {
+    font-size: 1.5em;
   }
 }
 @media (min-width: 768px) {
@@ -333,6 +356,9 @@
   .contact__list {
     grid-template-columns: repeat(2, 1fr);
   }
+  main .social-icons i {
+    font-size: 2em;
+  }
 }
 @media (min-width: 992px) {
   .projects__items {
@@ -346,66 +372,6 @@
   .projects__bio-image {
     height: 50vh;
   }
-}
-body {
-  background-color: #252424;
-  color: #fff;
-  height: 100vh;
-  font-family: sans-serif;
-}
-body header {
-  position: fixed;
-  z-index: 2;
-  width: 100%;
-  padding: 1rem;
-}
-
-h1,
-h2,
-h3 {
-  font-weight: 400;
-}
-
-a {
-  color: #fff;
-  text-decoration: none;
-}
-
-main {
-  height: 100%;
-  width: 100%;
-}
-main .text-secondary {
-  color: #6fc909;
-}
-main .social-icons {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  bottom: 1rem;
-  padding: 0 0.7rem;
-  align-items: center;
-  gap: 0.5rem;
-}
-main .social-icons i {
-  font-size: 1em;
-}
-main .social-icons a {
-  padding: 0.4rem;
-  transition: all 0.5s ease-in-out;
-}
-main .social-icons a:hover {
-  color: #6fc909;
-}
-
-footer {
-  font-size: 1rem;
-  position: fixed;
-  bottom: 0.4rem;
-  right: 1rem;
-  text-align: right;
-  padding: 1rem;
-  color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */

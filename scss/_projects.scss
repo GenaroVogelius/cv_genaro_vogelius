@@ -11,7 +11,7 @@
     background: linear-gradient(to right,
         rgba(v.$primary-color, 0.9),
         rgba(v.$primary-color, 0.3)),
-      url(../img/model-1.jpg) center top;
+      url(../img/foto-gena.jpg) center top;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -38,15 +38,26 @@
     overflow: hidden;
     cursor: pointer;
 
+    h3 {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(to bottom,
+          rgba(v.$primary-color, 0.9),
+          rgba(v.$clr-white, 0.3));
+      color: v.$clr-white;
+      padding: 0.3rem;
+    }
+
     img {
       width: 100%;
+      height: 100%;
     }
 
     &::after {
       content: "";
       position: absolute;
       top: 100%;
-      left: 0;
       height: 100%;
       width: 100%;
       background: v.$secondary-color;
@@ -57,6 +68,7 @@
     &:hover {
       &::after {
         top: 0;
+        // aca con el top es donde ves para lo de verde no se pase.
         opacity: 0.9;
       }
 
@@ -93,7 +105,4 @@
     flex-direction: column;
   }
 
-  footer {
-    transform: rotate(90deg) translate(-3rem, -5rem);
-  }
 }
