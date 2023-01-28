@@ -6,12 +6,12 @@
   padding-bottom: 2rem;
 
   &__bio-image {
-    height: 30vh;
+    height: 50vh;
     width: 100%;
     background: linear-gradient(to right,
         rgba(v.$primary-color, 0.9),
         rgba(v.$primary-color, 0.3)),
-      url(../img/foto-gena.jpg) center top;
+      url(../img/foto-gena.jpg) top;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -24,85 +24,243 @@
     }
   }
 
-  &__items {
-    width: 60vw;
-    margin: 2rem auto 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 2rem;
+  $bp-md: 600px;
+  $bp-lg: 800px;
+  $d: 700ms;
+  $e: cubic-bezier(0.19, 1, 0.22, 1);
+
+
+
+  // :root {
+  //     $d: 700ms;
+  //     $e: cubic-bezier(0.19, 1, 0.22, 1);
+  //     $font-sans: 'Rubik', sans-serif;
+  //     $font-serif: 'Cardo', serif;
+  // }
+
+  * {
+    box-sizing: border-box;
   }
 
-  &__item {
-    position: relative;
-    border-bottom: 5px solid v.$secondary-color;
-    overflow: hidden;
-    cursor: pointer;
+  html,
+  body {
+    height: 100%;
+  }
 
-    h3 {
-      text-align: center;
-      position: relative;
-      z-index: 1;
-      background: linear-gradient(to bottom,
-          rgba(v.$primary-color, 0.9),
-          rgba(v.$clr-white, 0.3));
-      color: v.$clr-white;
-      padding: 0.3rem;
+  body {
+    display: grid;
+    place-items: center;
+  }
+
+  .page-content {
+    display: grid;
+    grid-gap: 1rem;
+    padding: 1rem;
+    max-width: 1024px;
+    margin: 0 auto;
+
+
+    // ! sacar la media
+    @media (min-width: $bp-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $bp-lg) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+
+
+  .card {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    color: whitesmoke;
+    box-shadow: 0 1px 1px rgba(9, 252, 90, 0.1),
+      0 2px 2px rgba(5, 253, 88, 0.1),
+      0 4px 4px rgba(36, 226, 122, 0.1),
+      0 8px 8px rgba(3, 184, 93, 0.1),
+      0 16px 16px rgba(v.$secondary-color, 0.3);
+    // rgba(5, 238, 255, 0.938)
+
+
+    // ! copiar el media
+    @media (min-width: $bp-md) {
+      height: 15rem;
+    }
+
+    // el before tiene activa sus propiedades cuando no hay hover
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 110%;
+      background-size: cover;
+      background-position: 0 0;
+      @include m.transition-ease;
+      pointer-events: none;
+    }
+
+    // el after activa sus propiedades cuando esta el hover
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 200%;
+      pointer-events: none;
+      background-image: linear-gradient(to bottom,
+          hsla(0, 0%, 0%, 0) 0%,
+          hsla(0, 0%, 0%, 0.009) 11.7%,
+          hsla(0, 0%, 0%, 0.034) 22.1%,
+          hsla(0, 0%, 0%, 0.072) 31.2%,
+          hsla(0, 0%, 0%, 0.123) 39.4%,
+          hsla(0, 0%, 0%, 0.182) 46.6%,
+          hsla(0, 0%, 0%, 0.249) 53.1%,
+          hsla(0, 0%, 0%, 0.320) 58.9%,
+          hsla(0, 0%, 0%, 0.394) 64.3%,
+          hsla(0, 0%, 0%, 0.468) 69.3%,
+          hsla(0, 0%, 0%, 0.540) 74.1%,
+          hsla(0, 0%, 0%, 0.607) 78.8%,
+          hsla(0, 0%, 0%, 0.668) 83.6%,
+          hsla(0, 0%, 0%, 0.721) 88.7%,
+          hsla(0, 0%, 0%, 0.762) 94.1%,
+          hsla(0, 0%, 0%, 0.790) 100%);
+      transform: translateY(-50%);
+      @include m.transition-ease;
     }
 
     img {
       width: 100%;
       height: 100%;
-    }
-
-    &::after {
-      content: "";
       position: absolute;
-      top: 100%;
-      height: 100%;
-      width: 100%;
-      background: v.$secondary-color;
-      opacity: 0;
-      @include m.transition-ease;
+      top: 0;
+      left: 0;
+      // Al ponerle position, top y left a la imagen lo que hiciste es que se amolde al padre, en este caso card y por eso te ocupa todo el espacio de card.
     }
 
-    &:hover {
-      &::after {
-        top: 0;
-        // aca con el top es donde ves para lo de verde no se pase.
-        opacity: 0.9;
-      }
-
-      .projects__btn {
-        opacity: 1;
-      }
-    }
   }
 
-  &__btns {
-    position: absolute;
-    top: 0;
-    height: 100%;
+  .content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
+    padding: 1rem;
+    @include m.transition-ease;
+    z-index: 1;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+
+  .copy {
+    font-family: (v.$description);
+    font-size: 1.125rem;
+    font-style: italic;
+    line-height: 1.35;
+    margin-top: 1rem;
+  }
+
+  .projects__btns {
+    position: relative;
+    margin-top: 10%;
     z-index: 1;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     text-align: center;
-  }
+    background: transparent;
+    background-color: transparent;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    cursor: pointer;
+    width: max-content;
+    // el max-content es para que no se separe el logo de git del texto.
 
-  &__btn {
-    opacity: 0;
-    color: v.$primary-color;
-    @include m.transition-ease;
+    :hover {
+      color: red;
+      @include m.transition-ease;
+    }
 
-    &:hover {
-      color: v.$clr-white;
+    :focus {
+      outline: 1px dashed yellow;
+      outline-offset: 3px;
+
+    }
+
+    .projects__btn {
+      display: flex;
+      align-items: center;
     }
   }
 
-  .social-icons {
-    display: flex;
-    flex-direction: column;
+  @media (hover: hover) and (min-width: $bp-md) {
+    .card:after {
+      transform: translateY(0);
+    }
+
+    .content {
+      transform: translateY(calc(100% - 4.5rem));
+
+      >*:not(.title) {
+        // es una pseudo clase que con el * selecciona a todos los elementos pero con el :not le estas diciendo que no seleccione lo que este dentro del parentesis, en este caso selecciona todos los elementos dentro de content que serian las clases copy y btn menos title.
+        opacity: 0;
+        transform: translateY(1rem);
+        transition:
+          transform ($d) ($e),
+          opacity ($d) ($e);
+        // ! ver esto, es para que tenga una transición todo menos el titulo
+      }
+    }
+
+    .card:hover,
+    .card:focus-within {
+      align-items: center;
+
+      &:before {
+        transform: translateY(-4%);
+      }
+
+      &:after {
+        transform: translateY(-50%);
+      }
+
+      .content {
+        transform: translateY(0);
+
+        >*:not(.title) {
+          opacity: 1;
+          transform: translateY(0);
+          transition-delay: calc(($d) / 8);
+          // ! ver que haces con esto
+        }
+      }
+    }
+
+    .card:focus-within {
+
+      &:before,
+      &:after,
+      .content,
+      .content>*:not(.title) {
+        transition-duration: 0s;
+      }
+    }
   }
 
 }
