@@ -8,10 +8,8 @@
   &__bio-image {
     height: 50vh;
     width: 100%;
-    background: linear-gradient(to right,
-        rgba(v.$primary-color, 0.9),
-        rgba(v.$primary-color, 0.3)),
-      url(../img/foto-gena.jpg) top;
+    background: linear-gradient(to right, rgba(37, 36, 36, 0.9), rgba(37, 36, 36, 0.3)),
+      url(../img/foto-gena.jpg) center top;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -22,6 +20,23 @@
       font-size: 2rem;
       margin-bottom: 2rem;
     }
+  }
+
+  &__color-btn {
+    position: absolute;
+    width: 5rem;
+    z-index: 1;
+    right: 1rem;
+    top: 7rem;
+  }
+
+  //  ! verrrrrrrrrrr
+  &__color-btn-black {
+    position: absolute;
+    width: 5rem;
+    z-index: 1;
+    right: 8rem;
+    top: 9rem;
   }
 
   $bp-md: 600px;
@@ -58,16 +73,24 @@
     padding: 1rem;
     max-width: 1024px;
     margin: 0 auto;
+    grid-auto-rows: 15rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 10rem), 1fr));
+    // auto-fit expande las columnas para que llenen toda la fila.
+    // auto-fill llena el espacio de columnas aunque algunas queden vacias
+    // La función min() lo que hace es tomar el valor más pequeño, lo ves reflejado cuando achicas mucho la pantalla, podes observar que enves de tomar los 10rem, va a tomar el 100%. En los demas casos siempre tomaria 10rem de maximo de card ya que eso entra.
+    // 1fr hace que cada card se expanda hasta que entre otra card de 10rem, osea que el maximo de cada card seria entre 10rem y x, siendo x lo que falta para que entre otra card de 10rem en la columna.
 
 
-    // ! sacar la media
-    @media (min-width: $bp-md) {
-      grid-template-columns: repeat(2, 1fr);
-    }
 
-    @media (min-width: $bp-lg) {
-      grid-template-columns: repeat(4, 1fr);
-    }
+
+    // // ! sacar la media
+    // @media (min-width: $bp-md) {
+    //   grid-template-columns: repeat(2, 1fr);
+    // }
+
+    // @media (min-width: $bp-lg) {
+    //   grid-template-columns: repeat(4, 1fr);
+    // }
   }
 
 
@@ -85,14 +108,15 @@
       0 2px 2px rgba(5, 253, 88, 0.1),
       0 4px 4px rgba(36, 226, 122, 0.1),
       0 8px 8px rgba(3, 184, 93, 0.1),
-      0 16px 16px rgba(v.$secondary-color, 0.3);
+      0 16px 10px rgba(5, 238, 255, 0.938);
     // rgba(5, 238, 255, 0.938)
+    // rgba(v.$secondary-color, 0.3)
 
 
     // ! copiar el media
-    @media (min-width: $bp-md) {
-      height: 15rem;
-    }
+    // @media (min-width: $bp-md) {
+    //   height: 15rem;
+    // }
 
     // el before tiene activa sus propiedades cuando no hay hover
     &:before {
@@ -122,19 +146,9 @@
           hsla(0, 0%, 0%, 0) 0%,
           hsla(0, 0%, 0%, 0.009) 11.7%,
           hsla(0, 0%, 0%, 0.034) 22.1%,
-          hsla(0, 0%, 0%, 0.072) 31.2%,
-          hsla(0, 0%, 0%, 0.123) 39.4%,
-          hsla(0, 0%, 0%, 0.182) 46.6%,
-          hsla(0, 0%, 0%, 0.249) 53.1%,
-          hsla(0, 0%, 0%, 0.320) 58.9%,
-          hsla(0, 0%, 0%, 0.394) 64.3%,
-          hsla(0, 0%, 0%, 0.468) 69.3%,
-          hsla(0, 0%, 0%, 0.540) 74.1%,
-          hsla(0, 0%, 0%, 0.607) 78.8%,
-          hsla(0, 0%, 0%, 0.668) 83.6%,
-          hsla(0, 0%, 0%, 0.721) 88.7%,
-          hsla(0, 0%, 0%, 0.762) 94.1%,
-          hsla(0, 0%, 0%, 0.790) 100%);
+          hsla(0, 0%, 0%, 0.192) 31.2%,
+
+          rgba(0, 0, 0, 0.938) 100%);
       transform: translateY(-50%);
       @include m.transition-ease;
     }
@@ -165,6 +179,7 @@
     font-size: 1.3rem;
     font-weight: bold;
     line-height: 1.2;
+    text-transform: uppercase;
   }
 
   .copy {
@@ -206,6 +221,7 @@
     .projects__btn {
       display: flex;
       align-items: center;
+      color: whitesmoke
     }
   }
 

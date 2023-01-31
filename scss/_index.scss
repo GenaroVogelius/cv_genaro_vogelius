@@ -6,9 +6,8 @@
   &__bio-image {
     height: 50vh;
     width: 100%;
-    background: linear-gradient(to right,
-        rgba(v.$primary-color, 0.9),
-        rgba(v.$primary-color, 0.3)),
+    // hacer que el black tenga estos background colors
+    background: linear-gradient(to right, rgba(37, 36, 36, 0.9), rgba(37, 36, 36, 0.3)),
       url(../img/foto-gena.jpg) center top;
     background-size: cover;
     display: flex;
@@ -21,6 +20,8 @@
     p {
       margin-bottom: 2rem;
       font-family: "Montserrat", sans-serif;
+      color: #c8fff2;
+      text-transform: uppercase;
 
     }
   }

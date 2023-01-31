@@ -5,8 +5,8 @@
 }
 
 body {
-  background-color: #252424;
-  color: #f0f0f0;
+  background-color: #f0f0f0;
+  color: #252424;
   height: 100vh;
   font-family: sans-serif;
 }
@@ -24,7 +24,7 @@ h3 {
 }
 
 a {
-  color: #f0f0f0;
+  color: #252424;
   text-decoration: none;
 }
 
@@ -71,7 +71,7 @@ main .social-icons a:hover {
   top: 0.5rem;
   width: 28px;
   height: 3px;
-  background-color: #f0f0f0;
+  background-color: #252424;
   transition: all 0.8s ease-out;
 }
 .menu-btn__burguer::before {
@@ -80,7 +80,7 @@ main .social-icons a:hover {
   top: -8px;
   width: 28px;
   height: 3px;
-  background-color: #f0f0f0;
+  background-color: #252424;
   transition: all 0.8s ease-out;
 }
 .menu-btn__burguer::after {
@@ -89,7 +89,7 @@ main .social-icons a:hover {
   top: 8px;
   width: 20px;
   height: 3px;
-  background-color: #f0f0f0;
+  background-color: #252424;
   transition: all 0.8s ease-out;
 }
 .menu-btn__burguer.open {
@@ -122,7 +122,7 @@ main .social-icons a:hover {
   justify-content: center;
   height: 100vh;
   overflow: hidden;
-  background: #252424;
+  background: #f0f0f0;
   list-style-type: none;
   padding-right: 1rem;
   transform: translateY(-100%);
@@ -208,9 +208,9 @@ main .social-icons a:hover {
   grid-gap: 2rem;
 }
 .about .features__feature {
-  background: #3f3d3d;
+  background: white;
   padding: 0.5rem;
-  border: thick double #f0f0f0;
+  border: thick double #252424;
 }
 .about .features__feature h2 {
   margin-bottom: 0.5rem;
@@ -437,7 +437,7 @@ main .social-icons a:hover {
     display: block;
     transform: translateY(0);
     height: 100%;
-    background: #252424;
+    background: #f0f0f0;
     text-align: right;
   }
   .nav .menu-nav__item {
@@ -483,4 +483,4 @@ main .social-icons a:hover {
   }
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=styleJV.css.map */
