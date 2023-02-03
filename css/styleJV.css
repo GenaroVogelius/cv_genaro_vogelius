@@ -9,12 +9,20 @@ body {
   color: #252424;
   height: 100vh;
   font-family: sans-serif;
+  overflow-x: hidden;
 }
 body header {
   position: fixed;
   z-index: 2;
   width: 100%;
   padding: 1rem;
+}
+
+.image-text {
+  margin-bottom: 2rem;
+  font-family: "Montserrat", sans-serif;
+  color: #c8fff2;
+  text-transform: uppercase;
 }
 
 h1,
@@ -44,6 +52,7 @@ main .social-icons {
   width: 2rem;
   align-items: center;
   gap: 1rem;
+  transform: translateX(-200%);
 }
 main .social-icons i {
   font-size: 1.5em;
@@ -56,6 +65,22 @@ main .social-icons a:hover {
   color: #6fc909;
 }
 
+@keyframes move-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes move-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
 .menu-btn {
   position: absolute;
   z-index: 1;
@@ -157,7 +182,6 @@ main .social-icons a:hover {
   transition: all 1s ease-out;
   position: relative;
   top: -0.1rem;
-  margin-right: 1.5rem;
   width: 10rem;
 }
 .nav .menu-nav__item #btn-color:hover {
@@ -205,12 +229,6 @@ main .social-icons a:hover {
   align-items: center;
   justify-content: flex-end;
 }
-.about__bio-image p {
-  margin-bottom: 2rem;
-  font-family: "Montserrat", sans-serif;
-  color: #c8fff2;
-  text-transform: uppercase;
-}
 .about__bio {
   width: 80%;
   text-align: center;
@@ -228,6 +246,7 @@ main .social-icons a:hover {
   display: grid;
   grid-template-columns: 1fr;
   margin-left: 17%;
+  transform: translateX(200%);
   grid-gap: 2rem;
 }
 .about .features__feature {
@@ -245,6 +264,14 @@ main .social-icons a:hover {
   padding: 0.5rem 0rem;
   text-transform: uppercase;
   border-bottom: 2px solid #6fc909;
+}
+@keyframes move-left-features {
+  from {
+    transform: translateX(200%);
+  }
+  to {
+    transform: translateX(0%);
+  }
 }
 
 .projects {
@@ -293,10 +320,10 @@ main .social-icons a:hover {
   display: grid;
   grid-gap: 1rem;
   padding: 1rem;
-  max-width: 1183px;
+  max-width: 80%;
   margin: 0 auto;
-  grid-auto-rows: 15rem;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 10rem), 1fr));
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
 }
 .projects .card {
   position: relative;
@@ -305,6 +332,7 @@ main .social-icons a:hover {
   overflow: hidden;
   padding: 1rem;
   width: 100%;
+  height: 17rem;
   text-align: center;
   color: whitesmoke;
   border-radius: 1rem;
@@ -441,6 +469,10 @@ main .social-icons a:hover {
   .nav .menu-nav__link {
     font-size: 2rem;
   }
+  .nav .menu-nav__item #btn-color {
+    font-size: 1.5rem;
+    width: 18rem;
+  }
   .about .features {
     margin-left: 13%;
   }
@@ -470,7 +502,7 @@ main .social-icons a:hover {
     padding-left: 1.5rem;
   }
   .nav .menu-nav__link {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
   .about__bio {
     font-size: 1.5rem;
@@ -479,10 +511,7 @@ main .social-icons a:hover {
     height: 50vh;
   }
   .projects .page-content {
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 12rem), 1fr));
-  }
-  .projects .page-content .card {
-    height: 15rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
   }
   .projects .text-secondary {
     font-size: 3rem;
@@ -499,18 +528,22 @@ main .social-icons a:hover {
   .about .features {
     margin-left: 9%;
   }
+  .nav .menu-nav__item #btn-color {
+    font-size: initial;
+    width: initial;
+  }
 }
 @media (min-width: 992px) {
   .projects__items {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .contact__list {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (min-width: 1400px) {
   .projects__bio-image {
     height: 50vh;
+  }
+  .nav .menu-nav__link {
+    font-size: 1.9rem;
   }
 }
 
