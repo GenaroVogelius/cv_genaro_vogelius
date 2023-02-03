@@ -90,17 +90,17 @@ window.onscroll = function scrollSocial() {
     document.getElementById("social").style.transform = "translateX(-200%)";
   }
 
-  desiredPercentfeatures = 11;
-  const desiredPixelsfeatures =
-    (desiredPercentfeatures / 100) * totalScrollHeight;
-  if (window.scrollY > desiredPixelsfeatures) {
-    document.getElementById("features").style.animation =
-      "move-left-features 0.5s linear";
-    document.getElementById("features").addEventListener("animationend", ejeX);
-  }
-  function ejeX() {
-    document.getElementById("features").style.transform = "translateX(0)";
-  }
+  // desiredPercentfeatures = 11;
+  // const desiredPixelsfeatures =
+  //   (desiredPercentfeatures / 100) * totalScrollHeight;
+  // if (window.scrollY > desiredPixelsfeatures) {
+  //   document.getElementById("features").style.animation =
+  //     "move-left-features 0.5s linear";
+  //   document.getElementById("features").addEventListener("animationend", ejeX);
+  // }
+  // function ejeX() {
+  //   document.getElementById("features").style.transform = "translateX(0)";
+  // }
 };
 
 // window.onscroll = function scrollFeatures() {

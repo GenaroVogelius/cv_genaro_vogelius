@@ -246,7 +246,6 @@ main .social-icons a:hover {
   display: grid;
   grid-template-columns: 1fr;
   margin-left: 17%;
-  transform: translateX(200%);
   grid-gap: 2rem;
 }
 .about .features__feature {
