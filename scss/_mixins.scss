@@ -2,6 +2,10 @@
   transition: all 0.8s ease-out;
 }
 
+@mixin transition-botonBW {
+  transition: all 1s ease-out;
+}
+
 @mixin small-sm {
   @media(min-width: 390px) {
     @content;
@@ -10,7 +14,7 @@
 
 
 @mixin media-md {
-  @media (min-width: 768px) {
+  @media (min-width: 981px) {
     @content;
   }
 }
@@ -19,6 +23,8 @@
   @media (min-width: 992px) {
     @content;
   }
+
+  // (min-width: 992px)
 }
 
 @mixin media-xxl {

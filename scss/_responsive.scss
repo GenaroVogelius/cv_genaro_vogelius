@@ -2,14 +2,27 @@
 @use "_variables" as v;
 
 @include m.small-sm {
+
   .nav .menu-nav__link {
     font-size: 2rem
+  }
+
+  .nav .menu-nav__item #btn-color {
+    font-size: 1.5rem;
+    width: 18rem;
+  }
+
+  .page-content {
+    //! max-width: 64%;
+  }
+
+  .about .features {
+    margin-left: 13%;
   }
 
 
   main .social-icons {
     padding: 0 1rem;
-    gap: 1rem;
 
     i {
       font-size: 1.5em;
@@ -38,7 +51,8 @@
 
       &__item {
         display: inline;
-        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+
       }
 
       &__link {
@@ -57,11 +71,9 @@
     }
 
     .page-content {
-      grid-template-columns: repeat(auto-fill, minmax(min(100%, 12rem), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+      //! max-width: 64%;
 
-      .card{
-        height: 15rem;
-      }
     }
 
     .text-secondary {
@@ -73,8 +85,23 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  main .social-icons i {
-    font-size: 2em;
+  main .social-icons {
+    gap: 1.5rem;
+
+
+    i {
+      font-size: 2em;
+
+    }
+  }
+
+  .about .features {
+    margin-left: 9%;
+  }
+
+  .nav .menu-nav__item #btn-color {
+    font-size: initial;
+    width: initial;
   }
 }
 
@@ -85,13 +112,15 @@
     }
   }
 
-  .contact__list {
-    grid-template-columns: repeat(3, 1fr);
-  }
+
 }
 
 @include m.media-xxl {
   .projects__bio-image {
     height: 50vh;
+  }
+
+  .nav .menu-nav__link {
+    font-size: 1.9rem;
   }
 }

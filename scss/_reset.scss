@@ -1,6 +1,11 @@
 @use "_variables" as v;
 @use "_mixins" as m;
 
+
+
+
+
+
 * {
   margin: 0;
   padding: 0;
@@ -21,6 +26,13 @@ body {
     width: 100%;
     padding: 1rem;
   }
+}
+
+.image-text {
+  margin-bottom: 2rem;
+  font-family: "Montserrat", sans-serif;
+  color: v.$color-head;
+  text-transform: uppercase;
 }
 
 h1,
@@ -45,18 +57,20 @@ main {
 
 
   .social-icons {
-    display: flex;
+    display: none;
     flex-direction: column;
     position: fixed;
+    margin-left: 2%;
     bottom: 1rem;
-    padding: 0 0.7rem;
-    // darle mas padding desde 360px
+    width: 2rem;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
+    animation: move-right 0.5s linear;
+    transform: translateX(0);
 
     i {
-      font-size: 1em;
-      // font-size: 2em desde 360px;
+      font-size: 1.5em;
+
     }
 
     a {
@@ -67,5 +81,26 @@ main {
         color: v.$secondary-color;
       }
     }
+  }
+}
+
+@keyframes move-right {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes move-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+
   }
 }

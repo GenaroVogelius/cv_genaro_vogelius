@@ -39,13 +39,14 @@ main .social-icons {
   display: flex;
   flex-direction: column;
   position: fixed;
+  margin-left: 2%;
   bottom: 1rem;
-  padding: 0 0.7rem;
+  width: 2rem;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 main .social-icons i {
-  font-size: 1em;
+  font-size: 1.5em;
 }
 main .social-icons a {
   padding: 0.4rem;
@@ -141,6 +142,28 @@ main .social-icons a:hover {
 .nav .menu-nav__item.active > a {
   color: #6fc909;
 }
+.nav .menu-nav__item #btn-color {
+  padding: 4px;
+  cursor: pointer;
+  color: #252424;
+  font-family: inherit;
+  background: #f0f0f0;
+  text-align: center;
+  border-radius: 5px;
+  display: inline-block;
+  width: auto;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: all 1s ease-out;
+  position: relative;
+  top: -0.1rem;
+  margin-right: 1.5rem;
+  width: 10rem;
+}
+.nav .menu-nav__item #btn-color:hover {
+  background-color: #252424;
+  color: #f0f0f0;
+}
 .nav .menu-nav__link {
   display: inline-block;
   font-size: 1rem;
@@ -201,10 +224,10 @@ main .social-icons a:hover {
   text-align: center;
 }
 .about .features {
-  width: 60vw;
-  margin: 2rem auto 0 auto;
+  margin: 2rem;
   display: grid;
   grid-template-columns: 1fr;
+  margin-left: 17%;
   grid-gap: 2rem;
 }
 .about .features__feature {
@@ -222,9 +245,6 @@ main .social-icons a:hover {
   padding: 0.5rem 0rem;
   text-transform: uppercase;
   border-bottom: 2px solid #6fc909;
-}
-.about footer {
-  transform: rotate(90deg) translate(-3rem, -5rem);
 }
 
 .projects {
@@ -273,7 +293,7 @@ main .social-icons a:hover {
   display: grid;
   grid-gap: 1rem;
   padding: 1rem;
-  max-width: 1024px;
+  max-width: 1183px;
   margin: 0 auto;
   grid-auto-rows: 15rem;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 10rem), 1fr));
@@ -287,7 +307,8 @@ main .social-icons a:hover {
   width: 100%;
   text-align: center;
   color: whitesmoke;
-  box-shadow: 0 1px 1px rgba(9, 252, 90, 0.1), 0 2px 2px rgba(5, 253, 88, 0.1), 0 4px 4px rgba(36, 226, 122, 0.1), 0 8px 8px rgba(3, 184, 93, 0.1), 0 16px 10px rgba(5, 238, 255, 0.938);
+  border-radius: 1rem;
+  box-shadow: -1px -1px 4px 6px #252424;
 }
 .projects .card:before {
   content: "";
@@ -336,6 +357,7 @@ main .social-icons a:hover {
   font-weight: bold;
   line-height: 1.2;
   text-transform: uppercase;
+  width: 10rem;
 }
 .projects .copy {
   font-family: "Cardo", serif;
@@ -343,10 +365,10 @@ main .social-icons a:hover {
   font-style: italic;
   line-height: 1.35;
   margin-top: 1rem;
+  width: 10rem;
 }
 .projects .projects__btns {
   position: relative;
-  margin-top: 10%;
   z-index: 1;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -355,6 +377,7 @@ main .social-icons a:hover {
   background: transparent;
   background-color: transparent;
   display: flex;
+  bottom: -1rem;
   gap: 1rem;
   justify-content: center;
   cursor: pointer;
@@ -418,15 +441,17 @@ main .social-icons a:hover {
   .nav .menu-nav__link {
     font-size: 2rem;
   }
+  .about .features {
+    margin-left: 13%;
+  }
   main .social-icons {
     padding: 0 1rem;
-    gap: 1rem;
   }
   main .social-icons i {
     font-size: 1.5em;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 981px) {
   .menu-btn {
     visibility: hidden;
   }
@@ -442,10 +467,10 @@ main .social-icons a:hover {
   }
   .nav .menu-nav__item {
     display: inline;
-    padding-right: 1.5rem;
+    padding-left: 1.5rem;
   }
   .nav .menu-nav__link {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
   .about__bio {
     font-size: 1.5rem;
@@ -465,8 +490,14 @@ main .social-icons a:hover {
   .contact__list {
     grid-template-columns: repeat(2, 1fr);
   }
+  main .social-icons {
+    gap: 1.5rem;
+  }
   main .social-icons i {
     font-size: 2em;
+  }
+  .about .features {
+    margin-left: 9%;
   }
 }
 @media (min-width: 992px) {
