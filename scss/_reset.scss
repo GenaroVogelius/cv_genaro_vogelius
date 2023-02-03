@@ -17,6 +17,7 @@ body {
   color: v.$clr-white;
   height: 100vh;
   font-family: sans-serif;
+  overflow-x: hidden;
 
 
 
@@ -57,7 +58,7 @@ main {
 
 
   .social-icons {
-    display: none;
+    display: flex;
     flex-direction: column;
     position: fixed;
     margin-left: 2%;
@@ -65,8 +66,7 @@ main {
     width: 2rem;
     align-items: center;
     gap: 1rem;
-    animation: move-right 0.5s linear;
-    transform: translateX(0);
+    transform: translateX(-200%);
 
     i {
       font-size: 1.5em;
