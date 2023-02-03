@@ -53,7 +53,7 @@ function cambiadorBlack() {
 }
 
 // aca le decimos que mientras se haga scroll de la pantalla que te ejecute la función scroll.
-window.onscroll = function scroll() {
+window.onscroll = function scrollSocial() {
   // esto te pasa de pixeles a porcentaje
   // const totalScrollHeight = document.body.scrollHeight - window.innerHeight;
   // const scrollPercent = (window.scrollY / totalScrollHeight) * 100;
@@ -89,7 +89,34 @@ window.onscroll = function scroll() {
   function ejeNegativo() {
     document.getElementById("social").style.transform = "translateX(-200%)";
   }
+
+  desiredPercentfeatures = 11;
+  const desiredPixelsfeatures =
+    (desiredPercentfeatures / 100) * totalScrollHeight;
+  if (window.scrollY > desiredPixelsfeatures) {
+    document.getElementById("features").style.animation =
+      "move-left-features 0.5s linear";
+    document.getElementById("features").addEventListener("animationend", ejeX);
+  }
+  function ejeX() {
+    document.getElementById("features").style.transform = "translateX(0)";
+  }
 };
+
+// window.onscroll = function scrollFeatures() {
+//   console.log(window.scrollY);
+//   const totalScrollHeight = document.body.scrollHeight - window.innerHeight;
+//   const desiredPercent = 12;
+//   const desiredPixels = (desiredPercent / 100) * totalScrollHeight;
+//   if (window.scrollY > desiredPixels) {
+//     document.getElementById("features").style.animation =
+//       "move-left-features 0.5s linear";
+//     document.getElementById("features").addEventListener("animationend", ejeX);
+//   }
+//   function ejeX() {
+//     document.getElementById("features").style.transform = "translateX(0)";
+//   }
+// };
 
 // function scrollUp() {
 //   document.getElementById("social").style.animation = "move-left 0.5s linear";

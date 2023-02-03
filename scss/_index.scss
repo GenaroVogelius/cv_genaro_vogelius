@@ -40,6 +40,7 @@
     display: grid;
     grid-template-columns: 1fr;
     margin-left: 17%;
+    transform: translateX(200%);
 
     // 1fr
     grid-gap: 2rem;
@@ -48,6 +49,8 @@
       background: lighten(v.$primary-color, 10%);
       padding: 0.5rem;
       border: thick double v.$clr-white;
+
+
 
       h2 {
         margin-bottom: 0.5rem;
@@ -63,6 +66,17 @@
           border-bottom: 2px solid #6fc909;
         }
 
+      }
+
+      @keyframes move-left-features {
+        from {
+          transform: translateX(200%);
+        }
+
+        to {
+          transform: translateX(0%);
+
+        }
       }
     }
   }
