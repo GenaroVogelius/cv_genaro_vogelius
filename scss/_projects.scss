@@ -66,6 +66,7 @@
     margin: 0 auto;
     gap: 1.5rem;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+    justify-items: center;
     // auto-fit expande las columnas para que llenen toda la fila.
     // auto-fill llena el espacio de columnas aunque algunas queden vacias
     // La función min() lo que hace es tomar el valor más pequeño, lo ves reflejado cuando achicas mucho la pantalla, podes observar que enves de tomar los 10rem, va a tomar el 100%. En los demas casos siempre tomaria 10rem de maximo de card ya que eso entra.
@@ -97,6 +98,8 @@
     text-align: center;
     color: whitesmoke;
     border-radius: 1rem;
+
+    max-width: 18rem;
     box-shadow: -1px -1px 4px 6px v.$clr-white; // rgba(5, 238, 255, 0.938)
     // rgba(v.$secondary-color, 0.3)
 

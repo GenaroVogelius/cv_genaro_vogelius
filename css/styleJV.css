@@ -264,14 +264,6 @@ main .social-icons a:hover {
   text-transform: uppercase;
   border-bottom: 2px solid #6fc909;
 }
-@keyframes move-left-features {
-  from {
-    transform: translateX(200%);
-  }
-  to {
-    transform: translateX(0%);
-  }
-}
 
 .projects {
   padding-bottom: 2rem;
@@ -323,6 +315,7 @@ main .social-icons a:hover {
   margin: 0 auto;
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  justify-items: center;
 }
 .projects .card {
   position: relative;
@@ -335,6 +328,7 @@ main .social-icons a:hover {
   text-align: center;
   color: whitesmoke;
   border-radius: 1rem;
+  max-width: 18rem;
   box-shadow: -1px -1px 4px 6px #252424;
 }
 .projects .card:before {
