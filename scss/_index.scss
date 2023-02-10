@@ -4,9 +4,8 @@
   padding-bottom: 2rem;
 
   &__bio-image {
-    height: 50vh;
+    height: 15rem;
     width: 100%;
-    // hacer que el black tenga estos background colors
     background: linear-gradient(to right, rgba(37, 36, 36, 0.9), rgba(37, 36, 36, 0.3)),
       url(../img/foto-gena.jpg) center top;
     background-size: cover;
