@@ -39,8 +39,6 @@
     display: grid;
     grid-template-columns: 1fr;
     margin-left: 17%;
-    // transform: translateX(200%);
-    // no le pudimos poner el tranform porque se ve mal en git hub.
     grid-gap: 2rem;
 
     &__feature {

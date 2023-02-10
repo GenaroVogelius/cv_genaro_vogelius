@@ -12,9 +12,6 @@
     width: 18rem;
   }
 
-  .page-content {
-    //! max-width: 64%;
-  }
 
   .about .features {
     margin-left: 13%;
@@ -29,6 +26,16 @@
 
     }
   }
+
+
+
+  .about__bio-image,
+  .projects__bio-image {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: white
+  }
+
 
 }
 
@@ -63,16 +70,21 @@
 
   .about__bio {
     font-size: 1.5rem;
+
+    &-image {
+      margin-top: 4rem;
+    }
   }
 
   .projects {
     &__bio-image {
       height: 50vh;
+
+      margin-top: 4rem;
     }
 
     .page-content {
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
-      //! max-width: 64%;
 
     }
 
@@ -102,6 +114,7 @@
   .nav .menu-nav__item #btn-color {
     font-size: initial;
     width: initial;
+    margin-right: 0.8rem;
   }
 }
 

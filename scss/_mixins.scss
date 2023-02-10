@@ -23,8 +23,6 @@
   @media (min-width: 992px) {
     @content;
   }
-
-  // (min-width: 992px)
 }
 
 @mixin media-xxl {

@@ -22,28 +22,6 @@
     }
   }
 
-  &__color-btn {
-    position: absolute;
-    width: 5rem;
-    z-index: 1;
-    right: 1rem;
-    top: 7rem;
-  }
-
-  //  ! verrrrrrrrrrr
-  &__color-btn-black {
-    position: absolute;
-    width: 5rem;
-    z-index: 1;
-    right: 8rem;
-    top: 9rem;
-  }
-
-  $bp-md: 600px;
-  $bp-lg: 800px;
-  $d: 700ms;
-  $e: cubic-bezier(0.19, 1, 0.22, 1);
-
   * {
     box-sizing: border-box;
   }
@@ -71,18 +49,6 @@
     // auto-fill llena el espacio de columnas aunque algunas queden vacias
     // La función min() lo que hace es tomar el valor más pequeño, lo ves reflejado cuando achicas mucho la pantalla, podes observar que enves de tomar los 10rem, va a tomar el 100%. En los demas casos siempre tomaria 10rem de maximo de card ya que eso entra.
     // 1fr hace que cada card se expanda hasta que entre otra card de 10rem, osea que el maximo de cada card seria entre 10rem y x, siendo x lo que falta para que entre otra card de 10rem en la columna.
-
-
-
-
-    // // ! sacar la media
-    // @media (min-width: $bp-md) {
-    //   grid-template-columns: repeat(2, 1fr);
-    // }
-
-    // @media (min-width: $bp-lg) {
-    //   grid-template-columns: repeat(4, 1fr);
-    // }
   }
 
 
@@ -100,14 +66,8 @@
     border-radius: 1rem;
 
     max-width: 18rem;
-    box-shadow: -1px -1px 4px 6px v.$clr-white; // rgba(5, 238, 255, 0.938)
-    // rgba(v.$secondary-color, 0.3)
+    box-shadow: -1px -1px 4px 6px v.$clr-white; 
 
-
-    // ! copiar el media
-    // @media (min-width: $bp-md) {
-    //   height: 15rem;
-    // }
 
     // el before tiene activa sus propiedades cuando no hay hover
     &:before {
@@ -218,10 +178,13 @@
     }
   }
 
-  @media (hover: hover) and (min-width: $bp-md) {
+  @media (hover: hover) and (min-width: 600px) {
     .card:after {
       transform: translateY(0);
     }
+
+    // (hover: hover): This condition checks whether the user's device has a hover capability, which means that it can display the :hover pseudo-class styles when the user hovers over an element.
+    // If both of these conditions are true (hover and width, the styles inside the media query will be applied to the document. If one or both of the conditions are false, the styles inside the media query will not be applied.
 
     .content {
       transform: translateY(calc(100% - 4.5rem));
@@ -231,9 +194,8 @@
         opacity: 0;
         transform: translateY(1rem);
         transition:
-          transform ($d) ($e),
-          opacity ($d) ($e);
-        // ! ver esto, es para que tenga una transición todo menos el titulo
+          transform (700ms) (cubic-bezier(0.19, 1, 0.22, 1)),
+          opacity (700ms) (cubic-bezier(0.19, 1, 0.22, 1));
       }
     }
 
@@ -255,8 +217,7 @@
         >*:not(.title) {
           opacity: 1;
           transform: translateY(0);
-          transition-delay: calc(($d) / 8);
-          // ! ver que haces con esto
+          transition-delay: calc((700ms) / 8);
         }
       }
     }

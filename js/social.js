@@ -9,11 +9,11 @@ window.onscroll = function scrollSocial() {
   const totalScrollHeight = document.body.scrollHeight - window.innerHeight; //*document.body.scrollHeight returns the full height of the document, while window.innerHeight returns the height of the visible window.
   const desiredPercent = 14.44513329200248; //*este porcentaje es donde queremos que aparezca los iconos sociales.
   const desiredPixels = (desiredPercent / 100) * totalScrollHeight;
-  // hacemos esta cuenta porque window.scrollY solo toma como elemento a pixeles.
+  // hacemos esta cuenta porque window.scrollY solo toma como unidad de medida pixeles.
+  // document.body.offsetHeight es la altura total del documento.
 
   if (window.scrollY > desiredPixels) {
-    document.getElementById("social").style.animation =
-      "move-right 0.5s linear";
+    document.getElementById("social").style.animation = "move-right";
     document
       .getElementById("social")
       .addEventListener("animationend", ejeEstatico);
@@ -26,7 +26,7 @@ window.onscroll = function scrollSocial() {
     window.scrollY < desiredPixels &&
     document.getElementById("social").style.transform === "translateX(0px)"
   ) {
-    document.getElementById("social").style.animation = "move-left 0.5s linear";
+    document.getElementById("social").style.animation = "move-left";
     document
       .getElementById("social")
       .addEventListener("animationend", ejeNegativo);

@@ -62,10 +62,10 @@ main {
     align-items: center;
     gap: 1rem;
     transform: translateX(-200%);
+    @include m.transition-ease;
 
     i {
       font-size: 1.5em;
-
     }
 
     a {
@@ -96,6 +96,5 @@ main {
 
   to {
     transform: translateX(-100%);
-
   }
 }
