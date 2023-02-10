@@ -23,6 +23,8 @@ body header {
   font-family: "Montserrat", sans-serif;
   color: #c8fff2;
   text-transform: uppercase;
+  position: relative;
+  z-index: 1;
 }
 
 h1,
