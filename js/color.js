@@ -3,7 +3,7 @@ let boton = document.getElementById("btn-color");
 let A = sessionStorage.getItem("NowWhite");
 let B = document.getElementById("white");
 
-// vemos en que sesion que color estamos:
+// vemos en que sesion de color estamos:
 if (A === "true") {
   B.disabled = false;
   boton.innerHTML = "white-mode on";

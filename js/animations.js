@@ -30,3 +30,4 @@ gsap.from(".card", 1, {
   ease: "power1.inOut",
   delay: 1,
 });
+

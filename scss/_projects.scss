@@ -3,6 +3,7 @@
 
 
 .projects {
+  overflow: hidden;
   padding-bottom: 2rem;
 
   &__bio-image {
@@ -16,6 +17,7 @@
     align-items: center;
     justify-content: flex-end;
     margin-bottom: 1rem;
+
 
     .text-secondary {
       font-size: 2rem;
@@ -36,140 +38,274 @@
     display: grid;
     place-items: center;
   }
+}
 
-  .page-content {
-    display: grid;
-    grid-gap: 1rem;
-    padding: 1rem;
-    max-width: 80%;
-    margin: 0 auto;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
-    justify-items: center;
-    // auto-fit expande las columnas para que llenen toda la fila.
-    // auto-fill llena el espacio de columnas aunque algunas queden vacias
-    // La función min() lo que hace es tomar el valor más pequeño, lo ves reflejado cuando achicas mucho la pantalla, podes observar que enves de tomar los 10rem, va a tomar el 100%. En los demas casos siempre tomaria 10rem de maximo de card ya que eso entra.
-    // 1fr hace que cada card se expanda hasta que entre otra card de 10rem, osea que el maximo de cada card seria entre 10rem y x, siendo x lo que falta para que entre otra card de 10rem en la columna.
-  }
+.features__feature {
+  // animation-name: animation_feature_close;
+  animation-duration: 1.7s;
+  overflow: hidden;
 
 
 
-  .card {
-    position: relative;
-    display: flex;
-    align-items: flex-end;
+
+
+
+  &.open {
+    animation-name: animation_feature_open;
+    animation-duration: 2s;
     overflow: hidden;
-    padding: 1rem;
-    width: 100%;
-    height: 17rem;
+  }
+
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+
+  .text-secondary-projects {
+    margin: 0;
     text-align: center;
-    color: whitesmoke;
-    border-radius: 1rem;
-
-    max-width: 18rem;
-    box-shadow: -1px -1px 4px 6px v.$clr-white; 
-
-
-    // el before tiene activa sus propiedades cuando no hay hover
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 110%;
-      background-size: cover;
-      background-position: 0 0;
-      @include m.transition-ease;
-      pointer-events: none;
-    }
-
-    // el after activa sus propiedades cuando esta el hover
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 200%;
-      pointer-events: none;
-      background-image: linear-gradient(to bottom,
-          hsla(0, 0%, 0%, 0) 0%,
-          hsla(0, 0%, 0%, 0.009) 11.7%,
-          hsla(0, 0%, 0%, 0.034) 22.1%,
-          hsla(0, 0%, 0%, 0.192) 31.2%,
-
-          rgba(0, 0, 0, 0.938) 100%);
-      transform: translateY(-50%);
-      @include m.transition-ease;
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      // Al ponerle position, top y left a la imagen lo que hiciste es que se amolde al padre, en este caso card y por eso te ocupa todo el espacio de card.
-    }
-
   }
 
-  .content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+
+  .show-btn {
+    // la position es un problema
+    // position: absolute;
+    z-index: 1;
+    right: 1rem;
+    top: 0.7rem;
+    height: 2rem;
     padding: 1rem;
-    @include m.transition-ease;
-    z-index: 1;
-  }
-
-  .title {
-    font-size: 1.3rem;
-    font-weight: bold;
-    line-height: 1.2;
-    text-transform: uppercase;
-    width: 10rem;
-  }
-
-  .copy {
-    font-family: (v.$description);
-    font-size: 1.125rem;
-    font-style: italic;
-    line-height: 1.35;
-    margin-top: 1rem;
-    width: 10rem;
-  }
-
-  .projects__btns {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    text-align: center;
-    background: transparent;
-    background-color: transparent;
-    display: flex;
-    bottom: -1rem;
-    gap: 1rem;
-    justify-content: center;
+    width: 1.5rem;
     cursor: pointer;
-    width: max-content;
-    // el max-content es para que no se separe el logo de git del texto.
+    border-radius: 42%;
+    border: 2px solid #7FB913;
+    @include m.transition-ease;
 
-    :hover {
-      color: red;
+    &__arrow {
+      width: 2px;
+      height: 21px;
+      display: inline-block;
+      position: relative;
+      top: -10px;
+      left: -1px;
+      background-color: v.$clr-white;
       @include m.transition-ease;
+
+      &::before {
+        content: "";
+        width: 2px;
+        height: 15px;
+        display: block;
+        position: absolute;
+        transform: rotate(40deg);
+        right: -5px;
+        bottom: -1px;
+        background-color: v.$clr-white;
+        @include m.transition-ease;
+      }
+
+      &::after {
+        width: 2px;
+        height: 15px;
+        display: block;
+        transform: rotate(320deg);
+        bottom: -1px;
+        left: -5px;
+        content: "";
+        position: absolute;
+        background-color: v.$clr-white;
+        @include m.transition-ease;
+      }
+
+      &.open {
+        transform: rotate(720deg);
+
+
+        &::before {
+          transform: rotate(320deg) translate(5px, 8px);
+          right: 4px;
+          top: -4px;
+        }
+
+        &::after {
+          bottom: 3.5px;
+          left: -12px;
+          transform: rotate(40deg) translate(3px, -7px);
+        }
+      }
+    }
+  }
+
+}
+
+
+.card {
+  position: relative;
+  top: 0;
+  left: 0;
+  opacity: 0.98;
+  visibility: hidden;
+  overflow: hidden;
+
+  &.open {
+    visibility: visible;
+    overflow: hidden;
+
+
+  }
+
+  .card-inside {
+    // aca tenes que cambiar el display
+    display: none;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    overflow: hidden;
+
+    animation-duration: 1.6s;
+
+    background: v.$primary-color;
+    list-style-type: none;
+    padding: 1rem;
+
+
+    @include m.transition-ease;
+
+
+
+    &.open {
+      overflow: hidden;
+      background: v.$primary-color;
+
+      animation-duration: 2.2s;
+
+      display: flex;
+
+      height: 100%;
+      text-align: right;
+
     }
 
-    :focus {
-      outline: 1px dashed yellow;
-      outline-offset: 3px;
+    .img-container {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      padding: 1rem;
+      width: 100%;
+      height: 17rem;
+      text-align: center;
+      border-radius: 5rem;
+      max-width: 24rem;
+      box-shadow: -1px -1px 20px 4px v.$secondary-color;
 
+
+      // el before tiene activa sus propiedades cuando no hay hover
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 110%;
+        background-size: cover;
+        background-position: 0 0;
+        @include m.transition-ease;
+        pointer-events: none;
+      }
+
+      // el after activa sus propiedades cuando esta el hover
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 200%;
+        pointer-events: none;
+        background-image: linear-gradient(to bottom,
+            hsla(0, 0%, 0%, 0) 0%,
+            hsla(0, 0%, 0%, 0.009) 11.7%,
+            hsla(0, 0%, 0%, 0.034) 22.1%,
+            hsla(0, 0%, 0%, 0.192) 31.2%,
+
+            rgba(0, 0, 0, 0.938) 100%);
+        transform: translateY(-50%);
+        @include m.transition-ease;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        // Al ponerle position, top y left a la imagen lo que hiciste es que se amolde al padre, en este caso card y por eso te ocupa todo el espacio de card.
+      }
+
+    }
+
+    .content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 1rem;
+      @include m.transition-ease;
+      z-index: 1;
+    }
+
+    .title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      line-height: 1.2;
+      text-transform: uppercase;
+      width: 10rem;
+    }
+
+    .copy {
+      color: v.$primary-color;
+      font-family: (v.$description);
+      font-size: 1.125rem;
+      font-style: italic;
+      line-height: 1.35;
+      margin-top: 1rem;
+      width: 10rem;
+    }
+
+    .projects__btns {
+      margin-bottom: 1rem;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      text-align: center;
+      background: transparent;
+      background-color: transparent;
+      display: flex;
+      bottom: -1rem;
+      gap: 1rem;
+      justify-content: center;
+      cursor: pointer;
+      width: max-content;
+      // el max-content es para que no se separe el logo de git del texto.
+
+      :hover {
+        color: v.$secondary-color;
+        @include m.transition-ease;
+      }
+
+      :focus {
+        outline: 1px dashed yellow;
+        outline-offset: 3px;
+      }
     }
 
     .projects__btn {
@@ -177,61 +313,124 @@
       align-items: center;
       color: whitesmoke
     }
-  }
 
-  @media (hover: hover) and (min-width: 600px) {
-    .card:after {
-      transform: translateY(0);
-    }
 
-    // (hover: hover): This condition checks whether the user's device has a hover capability, which means that it can display the :hover pseudo-class styles when the user hovers over an element.
-    // If both of these conditions are true (hover and width, the styles inside the media query will be applied to the document. If one or both of the conditions are false, the styles inside the media query will not be applied.
-
-    .content {
-      transform: translateY(calc(100% - 4.5rem));
-
-      >*:not(.title) {
-        // es una pseudo clase que con el * selecciona a todos los elementos pero con el :not le estas diciendo que no seleccione lo que este dentro del parentesis, en este caso selecciona todos los elementos dentro de content que serian las clases copy y btn menos title.
-        opacity: 0;
-        transform: translateY(1rem);
-        transition:
-          transform (700ms) (cubic-bezier(0.19, 1, 0.22, 1)),
-          opacity (700ms) (cubic-bezier(0.19, 1, 0.22, 1));
-      }
-    }
-
-    .card:hover,
-    .card:focus-within {
-      align-items: center;
-
-      &:before {
-        transform: translateY(-4%);
+    @media (hover: hover) and (min-width: 600px) {
+      .img-container:after {
+        transform: translateY(0);
       }
 
-      &:after {
-        transform: translateY(-50%);
-      }
+      //   // (hover: hover): This condition checks whether the user's device has a hover capability, which means that it can display the :hover pseudo-class styles when the user hovers over an element.
+      //   // If both of these conditions are true (hover and width, the styles inside the media query will be applied to the document. If one or both of the conditions are false, the styles inside the media query will not be applied.
 
       .content {
-        transform: translateY(0);
+        transform: translateY(calc(100% - 4.5rem));
 
         >*:not(.title) {
-          opacity: 1;
+          // es una pseudo clase que con el * selecciona a todos los elementos pero con el :not le estas diciendo que no seleccione lo que este dentro del parentesis, en este caso selecciona todos los elementos dentro de content que serian las clases copy y btn menos title.
+          opacity: 0;
+          transform: translateY(1rem);
+          transition:
+            transform (700ms) (cubic-bezier(0.19, 1, 0.22, 1)),
+            opacity (700ms) (cubic-bezier(0.19, 1, 0.22, 1));
+        }
+      }
+
+      .img-container:hover,
+      .img-container:focus-within {
+        align-items: center;
+
+        &:before {
+          transform: translateY(-4%);
+        }
+
+        &:after {
+          transform: translateY(-50%);
+        }
+
+        .content {
           transform: translateY(0);
-          transition-delay: calc((700ms) / 8);
+
+          >*:not(.title) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: calc((700ms) / 8);
+          }
+        }
+      }
+
+      .img-container:focus-within {
+
+        &:before,
+        &:after,
+        .content,
+        .content>*:not(.title) {
+          transition-duration: 0s;
         }
       }
     }
+  }
+}
 
-    .card:focus-within {
 
-      &:before,
-      &:after,
-      .content,
-      .content>*:not(.title) {
-        transition-duration: 0s;
-      }
-    }
+
+
+@keyframes animation_card_inside_open {
+  from {
+    transform: translateY(-100%);
   }
 
+  to {
+    transform: translateY(0);
+
+  }
 }
+
+@keyframes animation_feature_open {
+  from {
+    height: 20%;
+  }
+
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes animation_card_inside_close {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes animation_feature_close {
+  from {
+    height: 100%;
+
+  }
+
+
+  to {
+    height: 14%;
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//? auto-fit expande las columnas para que llenen toda la fila.
+//? auto-fill llena el espacio de columnas aunque algunas queden vacias
+//? La función min() lo que hace es tomar el valor más pequeño, lo ves reflejado cuando achicas mucho la pantalla, podes observar que enves de tomar los 10rem, va a tomar el 100%. En los demas casos siempre tomaria 10rem de maximo de card ya que eso entra.
+//? 1fr hace que cada card se expanda hasta que entre otra card de 10rem, osea que el maximo de cada card seria entre 10rem y x, siendo x lo que falta para que entre otra card de 10rem en la columna.
