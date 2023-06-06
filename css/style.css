@@ -465,7 +465,7 @@ main .social-icons a:hover {
   width: 10rem;
 }
 .card .card-inside .copy {
-  color: #252424;
+  color: white;
   font-family: "Cardo", serif;
   font-size: 1.125rem;
   font-style: italic;
